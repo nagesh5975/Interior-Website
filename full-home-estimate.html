@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Home Estimate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        label,
+        select {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Full Home Price Estimate</h2>
+        <label for="fullHome">Full Home (sq ft):</label>
+        <select id="fullHome">
+            <option value="500">500 sq ft</option>
+            <option value="1000">1000 sq ft</option>
+            <option value="1500">1500 sq ft</option>
+            <option value="2000">2000 sq ft</option>
+        </select>
+        <label for="interiorStyleHome">Interior Style:</label>
+        <select id="interiorStyleHome">
+            <option value="1.0">Simplistic</option>
+            <option value="1.5">Modern</option>
+            <option value="2.0">Luxury</option>
+        </select>
+        <button onclick="calculateEstimate()">Calculate Estimate</button>
+        <h3>Estimated Price: <span id="estimate">0</span> INR</h3>
+    </div>
+
+    <script>
+        function calculateEstimate() {
+            let area = parseFloat(document.getElementById("fullHome").value);
+            let interiorStyle = parseFloat(document.getElementById("interiorStyleHome").value);
+            let totalEstimate = area * 1500 * interiorStyle;
+            document.getElementById("estimate").innerText = totalEstimate.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

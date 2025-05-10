@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Consultancy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .booking-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+
+        input,
+        select,
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="booking-container">
+        <h2>Book Your Interior Consultancy</h2>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" required>
+
+        <button onclick="submitBooking()">Confirm Booking</button>
+    </div>
+
+    <script>
+        function submitBooking() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let date = document.getElementById("date").value;
+            let time = document.getElementById("time").value;
+
+            if (name && email && date && time) {
+                alert("Thank you, " + name + "! Your consultancy booking for " + date + " at " + time + " has been confirmed.");
+            } else {
+                alert("Please fill in all fields before submitting.");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wardrobe Estimate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        label,
+        select {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Wardrobe Price Estimate</h2>
+        <label for="wardrobe">Wardrobe (sq ft):</label>
+        <select id="wardrobe">
+            <option value="20">20 sq ft</option>
+            <option value="50">50 sq ft</option>
+            <option value="100">100 sq ft</option>
+        </select>
+        <label for="interiorStyleWardrobe">Interior Style:</label>
+        <select id="interiorStyleWardrobe">
+            <option value="1.0">Simplistic</option>
+            <option value="1.5">Modern</option>
+            <option value="2.0">Luxury</option>
+        </select>
+        <button onclick="calculateEstimate()">Calculate Estimate</button>
+        <h3>Estimated Price: <span id="estimate">0</span> INR</h3>
+    </div>
+
+    <script>
+        function calculateEstimate() {
+            let area = parseFloat(document.getElementById("wardrobe").value);
+            let interiorStyle = parseFloat(document.getElementById("interiorStyleWardrobe").value);
+            let totalEstimate = area * 1800 * interiorStyle;
+            document.getElementById("estimate").innerText = totalEstimate.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
